@@ -7,15 +7,24 @@
 
 import SwiftUI
 
+struct ProeminentTitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View{
+    func proeminentTitle() -> some View{
+        modifier(ProeminentTitleModifier())
+    }
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text("Hello World!")
+            .proeminentTitle()
     }
 }
 
